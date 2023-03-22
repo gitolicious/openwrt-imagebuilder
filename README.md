@@ -25,7 +25,7 @@ All tasks are defined as VS Code tasks. They can be started from the "Task Explo
   * uploads the config files from the `files` folder separataly
   * use this to test your local config before compiling it into a firmware image
 
-To customize the build, adapt the packages included and services enabled. Check the default packages by selecting your model at the [Chef Online Imagebuilder](https://chef.libremesh.org/) or [Attended Sysupgrade(asu)](https://asu.aparcar.org/) and copy the package list to `get-config.sh`.
+To customize the build, adapt the packages included and services enabled. Check the default packages by selecting your model at the [OpenWrt Firmware Selector](https://firmware-selector.openwrt.org/) (extend _Customize installed packages and/or first boot script_, check the list of _Installed Packages_) and copy the package list to `PACKAGES` at `.vscode/make-image.sh`.
 
 ### Examples
 
