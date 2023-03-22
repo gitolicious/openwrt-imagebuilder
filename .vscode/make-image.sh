@@ -50,5 +50,4 @@ make -C imagebuilder image \
 
 cat imagebuilder/bin/targets/ath79/generic/sha256sums | grep sysupgrade
 
-echo 
-echo "BUILD SUCCESS"
+source $(dirname $(realpath "$0"))/check-version.sh

@@ -9,6 +9,11 @@
             "command": ".vscode/get-config.sh"
         },
         {
+            "label": "check version",
+            "type": "shell",
+            "command": ".vscode/check-version.sh"
+        },
+        {
             "label": "push config",
             "type": "shell",
             "command": ".vscode/push-config.sh"
