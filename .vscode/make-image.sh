@@ -4,20 +4,20 @@ set -e
 make -C imagebuilder image \
     PROFILE="tplink_archer-c6-v2" \
     PACKAGES="\
-        ath10k-firmware-qca9888-ct \
+        -ath10k-firmware-qca9888-ct \
+        ath10k-firmware-qca9888 \
         base-files \
         busybox \
         ca-bundle \
         dnsmasq \
         dropbear \
-        firewall \
+        firewall4 \
         fstools \
-        ip6tables \
-        iptables \
-        kmod-ath10k-ct \
+        -kmod-ath10k-ct \
+        kmod-ath10k \
         kmod-ath9k \
         kmod-gpio-button-hotplug \
-        kmod-ipt-offload \
+        kmod-nft-offload \
         libc \
         libgcc \
         libustream-wolfssl \
@@ -25,22 +25,30 @@ make -C imagebuilder image \
         luci \
         mtd \
         netifd \
+        nftables \
         odhcp6c \
         odhcpd-ipv6only \
         opkg \
         ppp \
         ppp-mod-pppoe \
         procd \
+        procd-seccomp \
+        procd-ujail \
         swconfig \
         uboot-envtools \
-        ucert \
         uci \
         uclient-fetch \
         urandom-seed \
         urngd \
         wpad-basic-wolfssl \
         \
-        mikrotik-btest \
+        curl \
     " \
     FILES="../files"
+
+[[ -z $(find imagebuilder/build_dir/ -iname "*-squashfs-sysupgrade.bin") ]] && (echo; echo "BUILD FAILED"; exit 1)
+
 cat imagebuilder/bin/targets/ath79/generic/sha256sums | grep sysupgrade
+
+echo 
+echo "BUILD SUCCESS"

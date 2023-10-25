@@ -11,6 +11,6 @@ fi
 export FILENAME=$(basename imagebuilder/bin/targets/ath79/generic/openwrt-*-ath79-generic-tplink_archer-c6-v2-squashfs-sysupgrade.bin)
 echo $FILENAME
 ssh root@$OPENWRT_IP mkdir -p /tmp/sysupgrade
-scp bin/targets/ath79/generic/* root@$OPENWRT_IP:/tmp/sysupgrade
+scp imagebuilder/bin/targets/ath79/generic/* root@$OPENWRT_IP:/tmp/sysupgrade
 ssh root@$OPENWRT_IP 'cd /tmp/sysupgrade && sha256sum -c /tmp/sysupgrade/sha256sums'
 ssh root@$OPENWRT_IP sysupgrade --force -v /tmp/sysupgrade/$FILENAME
