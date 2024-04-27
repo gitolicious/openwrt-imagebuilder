@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-make -C imagebuilder image \
+ROOT_DIR=$(dirname $(realpath "$0"))/..
+
+make -C ${ROOT_DIR}/imagebuilder image \
     PROFILE="tplink_archer-c6-v2" \
     PACKAGES="\
         -ath10k-firmware-qca9888-ct \
@@ -46,8 +48,8 @@ make -C imagebuilder image \
     " \
     FILES="../files"
 
-[[ -z $(find imagebuilder/build_dir/ -iname "*-squashfs-sysupgrade.bin") ]] && (echo; echo "BUILD FAILED"; exit 1)
+[[ -z $(find ${ROOT_DIR}/imagebuilder/build_dir/ -iname "*-squashfs-sysupgrade.bin") ]] && (echo; echo "BUILD FAILED"; exit 1)
 
-cat imagebuilder/bin/targets/ath79/generic/sha256sums | grep sysupgrade
+cat ${ROOT_DIR}/imagebuilder/bin/targets/ath79/generic/sha256sums | grep sysupgrade
 
-source $(dirname $(realpath "$0"))/check-version.sh
+source ${ROOT_DIR}/.vscode/check-version.sh
