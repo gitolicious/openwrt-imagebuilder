@@ -13,7 +13,7 @@
 			// Options
 			"NODE_VERSION": "none",
 			
-			"OPENWRT_VERSION": "22.03.5",
+			"OPENWRT_VERSION": "23.05.3",
 			"OPENWRT_TARGET": "ath79",
 		}
 	},

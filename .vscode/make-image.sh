@@ -20,7 +20,7 @@ make -C imagebuilder image \
         kmod-nft-offload \
         libc \
         libgcc \
-        libustream-wolfssl \
+        libustream-mbedtls \
         logd \
         luci \
         mtd \
@@ -40,7 +40,7 @@ make -C imagebuilder image \
         uclient-fetch \
         urandom-seed \
         urngd \
-        wpad-basic-wolfssl \
+        wpad-basic-mbedtls \
         \
         curl \
     " \

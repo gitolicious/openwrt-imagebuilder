@@ -33,7 +33,7 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
-ARG OPENWRT_VERSION="22.03.5"
+ARG OPENWRT_VERSION="23.05.3"
 ARG OPENWRT_TARGET="ath79"
 RUN su vscode -c " \
         cd ~ && \
